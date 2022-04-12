@@ -20,6 +20,11 @@ $route['categories/create'] = 'categories/create';
 $route['categories'] = 'categories/index';
 $route['categories/posts/(:any)'] = 'categories/posts/$1';
 
+
+//users
+$route['users/register'] = 'users/register';
+
+
 $route['default_controller'] = 'welcome';
 $route['(:any)'] = 'pages/view/$1';
 $route['404_override'] = '';

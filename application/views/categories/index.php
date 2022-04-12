@@ -66,7 +66,7 @@ foreach ($categories as $category):
 			<div>
 				<div class="image">
 					<div class="aspect-w-4 aspect-h-3">
-						<img src="<?php echo base_url() . 'assets/uploads/categories/' . $category['image_url'] ?>">
+						<img src="<?php echo base_url() . 'assets/uploads/categories/' . $category['category_image_url'] ?>">
 					</div>
 					<label class="custom-checkbox absolute top-0 ltr:left-0 rtl:right-0 mt-2 ltr:ml-2 rtl:mr-2">
 						<input type="checkbox" data-toggle="cardSelection">

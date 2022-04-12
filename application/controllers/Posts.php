@@ -82,6 +82,11 @@ class Posts extends CI_Controller
 			}
 
 			$this->PostModel->create_post($post_image);
+
+			//session message
+			$this->session->set_flashdata('post_created', 'Your post was created.');
+
+
 			redirect('posts');
 		}
 	}
@@ -114,7 +119,7 @@ class Posts extends CI_Controller
 		}
 		else
 		{
-			$this->PostModel->create_post();
+			$this->PostModel->edit_post();
 			redirect('posts');
 		}
 

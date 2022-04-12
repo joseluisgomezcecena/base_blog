@@ -17,7 +17,7 @@ class CategoryModel extends  CI_Model
 	{
 		$data = array(
 			'category_name'=>$this->input->post('name'),
-			'image_url'=> $category_image
+			'category_image_url'=> $category_image
 		);
 
 		return $this->db->insert('category', $data);

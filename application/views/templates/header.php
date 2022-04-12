@@ -707,3 +707,26 @@
 
 <!-- Workspace -->
 <main class="workspace overflow-hidden">
+
+	<?php if($this->session->flashdata('user_registered')): ?>
+
+		<div class="alert alert_outlined alert_info">
+			<strong class="uppercase"><bdi>Info!</bdi></strong>
+			<?php $this->session->flashdata('user_registered') ?>
+			<button type="button" class="dismiss la la-times" data-dismiss="alert"></button>
+		</div>
+
+	<?php endif; ?>
+
+
+	<?php if($this->session->flashdata('post_created')): ?>
+
+		<div class="alert alert_outlined alert_info">
+			<strong class="uppercase"><bdi>Info!</bdi></strong>
+			<?php $this->session->flashdata('post_created') ?>
+			<button type="button" class="dismiss la la-times" data-dismiss="alert"></button>
+		</div>
+
+	<?php endif; ?>
+
+
