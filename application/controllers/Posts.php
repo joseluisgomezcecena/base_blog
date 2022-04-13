@@ -87,7 +87,7 @@ class Posts extends CI_Controller
 			$this->session->set_flashdata('post_created', 'Your post was created.');
 
 
-			redirect('posts');
+			redirect(base_url() .'posts');
 		}
 	}
 

@@ -730,3 +730,34 @@
 	<?php endif; ?>
 
 
+	<?php if($this->session->flashdata('login_failed')): ?>
+
+		<div class="alert alert_outlined alert_danger">
+			<strong class="uppercase"><bdi>Login Failed</bdi></strong>
+			<?php $this->session->flashdata('login_failed') ?>Incorrect username or password.
+			<button type="button" class="dismiss la la-times" data-dismiss="alert"></button>
+		</div>
+
+	<?php endif; ?>
+
+
+	<?php if($this->session->flashdata('login_success')): ?>
+
+		<div class="alert alert_outlined alert_success mb-5 mt-5">
+			<strong class="uppercase"><bdi>Logged in</bdi></strong>
+			<?php $this->session->flashdata('login_success') ?>You are now logged in.
+			<button type="button" class="dismiss la la-times" data-dismiss="alert"></button>
+		</div>
+
+	<?php endif; ?>
+
+
+	<?php if($this->session->flashdata('user_logged_out')): ?>
+
+		<div class="alert alert_outlined alert_success mb-5 mt-5">
+			<strong class="uppercase"><bdi>Logged out</bdi></strong>
+			<?php $this->session->flashdata('user_logged_out') ?>You have logged out.
+			<button type="button" class="dismiss la la-times" data-dismiss="alert"></button>
+		</div>
+
+	<?php endif; ?>

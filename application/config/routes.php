@@ -23,6 +23,7 @@ $route['categories/posts/(:any)'] = 'categories/posts/$1';
 
 //users
 $route['users/register'] = 'users/register';
+$route['users/login'] = 'users/login';
 
 
 $route['default_controller'] = 'welcome';
