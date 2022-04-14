@@ -11,6 +11,10 @@
 	</ul>
 </section>
 
+<div class="mb-2">
+	<?php echo validation_errors(); ?>
+</div>
+
 <?php echo form_open_multipart('posts/create')?>
 
 <div class="grid lg:grid-cols-4 gap-5">
@@ -108,9 +112,7 @@
 
 
 
-			<div class="mb-2">
-				<?php echo validation_errors(); ?>
-			</div>
+
 
 
 
@@ -126,6 +128,5 @@
 			-->
 		</div>
 	</div>
-
-</div>
+	</div>
 </form>
