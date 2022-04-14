@@ -11,11 +11,13 @@
 	</ul>
 </section>
 
-<?php echo form_open('posts/create')?>
+<?php echo form_open_multipart("posts/edit/{$post['id']}")?>
 
 <div class="grid lg:grid-cols-4 gap-5">
 
 	<!-- Content -->
+
+	<input type="hidden" name="id" value="<?php echo $post['id'] ?>">
 
 	<div class="lg:col-span-2 xl:col-span-3">
 		<div class="card p-5">

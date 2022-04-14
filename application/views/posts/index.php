@@ -112,7 +112,7 @@ foreach ($posts as $post):
 					<a href="#">Something Else</a>
 				</div>
 			</div>
-			<a href="#"
+			<a href="<?php echo base_url('/posts/edit/' . $post['id']) ?>"
 			   class="btn btn-icon btn_outlined btn_secondary mt-auto ltr:ml-auto rtl:mr-auto lg:ltr:ml-0 lg:rtl:mr-0">
 				<span class="la la-pen-fancy"></span>
 			</a>

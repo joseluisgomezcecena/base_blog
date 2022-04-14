@@ -103,6 +103,15 @@ class Users extends CI_Controller{
 	}
 
 
+	public function profile()
+	{
+		$data['title'] = 'Profile';
+
+		$this->load->view('templates/header');
+		$this->load->view('users/profile', $data);
+		$this->load->view('templates/footer');
+	}
+
 
 	function check_username_exists($username)
 	{

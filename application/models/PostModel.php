@@ -75,7 +75,7 @@ class PostModel extends  CI_Model{
 
 
 
-	public function edit_post($post_image)
+	public function edit_post($post_image, $uploaded)
 	{
 		//$slug = url_title($this->input->post('title'));
 		$status = $this->input->post('status') == '1' ? 1 : 0;
@@ -84,18 +84,34 @@ class PostModel extends  CI_Model{
 		$category = $this->input->post('category[]');
 		$category_id = implode(',',$category);
 
+		$id = $this->input->post('id');
 
-		$data = array(
-			'title'	=>	$this->input->post('title'),
-			'body'  =>	$this->input->post('body'),
-			'status'  =>  $status,
-			'visibility'  =>  $visibility,
-			'category_id'  =>  $category_id,
-			'image_url'  =>  $post_image
-		);
+		if($uploaded== 0)
+		{
+			$data = array(
+				'title'	=>	$this->input->post('title'),
+				'body'  =>	$this->input->post('body'),
+				'status'  =>  $status,
+				'visibility'  =>  $visibility,
+				'category_id'  =>  $category_id
+			);
+		}
+		else
+		{
+			$data = array(
+				'title'	=>	$this->input->post('title'),
+				'body'  =>	$this->input->post('body'),
+				'status'  =>  $status,
+				'visibility'  =>  $visibility,
+				'category_id'  =>  $category_id,
+				'image_url'  =>  $post_image
+			);
+		}
 
-		$this->db->insert('posts', $data);
-		return  $this->db->insert_id();
+
+
+		return $this->db->update('posts',$data,array('id'=>$id));
+		//return  $this->db->insert_id();
 
 
 	}

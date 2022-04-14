@@ -119,7 +119,31 @@ class Posts extends CI_Controller
 		}
 		else
 		{
-			$this->PostModel->edit_post();
+
+			//file uploads
+			$config['upload_path'] = './assets/uploads/posts';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+			$config['max_size'] = '2048';
+			$config['max_width'] = '2500';
+			$config['max_height'] = '2500';
+
+			$this->load->library('upload', $config);
+
+			if(!$this->upload->do_upload())
+			{
+				$errors = array('error'=>$this->upload->display_errors());
+				//$post_image = 'noimage.jpg';
+				$uploaded = 0;
+			}
+			else
+			{
+				$data = array('upload_data'=>$this->upload->data());
+				$post_image = $_FILES['userfile']['name'];
+				$uploaded = 1;
+			}
+
+
+			$this->PostModel->edit_post($post_image, $uploaded);
 			redirect('posts');
 		}
 
