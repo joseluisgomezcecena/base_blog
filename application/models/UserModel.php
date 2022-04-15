@@ -21,6 +21,40 @@ class UserModel extends CI_Model{
 	}
 
 
+	public function edit_profile($post_image, $uploaded, $user_id, $encrypted_pwd)
+	{
+		$id = $user_id;
+
+		if($uploaded== 0)
+		{
+			$data = array(
+				'name'=>$this->input->post('name'),
+				'email'=>$this->input->post('email'),
+				'username'=>$this->input->post('username'),
+				'phone'=>$this->input->post('phone'),
+				'password'=>$encrypted_pwd,
+				'bio'=>$this->input->post('bio'),
+			);
+		}
+		else
+		{
+			$data = array(
+				'name'=>$this->input->post('name'),
+				'email'=>$this->input->post('email'),
+				'username'=>$this->input->post('username'),
+				'phone'=>$this->input->post('phone'),
+				'password'=>$encrypted_pwd,
+				'bio'=>$this->input->post('bio'),
+				'profile_image'=>$post_image,
+			);
+		}
+
+		return $this->db->update('users', $data, array('id'=>$id));
+
+
+	}
+
+
 	public function login($username, $password)
 	{
 		$this->db->where('username', $username);
@@ -77,6 +111,13 @@ class UserModel extends CI_Model{
 		{
 			return false;
 		}
+	}
+
+
+	public function get_user($id)
+	{
+		$query = $this->db->get_where('users', array('id'=>$id));
+		return $query->row_array();
 	}
 
 }
